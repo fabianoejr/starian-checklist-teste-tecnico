@@ -17,10 +17,11 @@ services:
       context: ./frontend
       dockerfile: Dockerfile
     volumes:
-      - ./frontend:/app
+        - ./frontend:/app
+        - /app/node_modules
     ports:
       - "4200:4200"
-    command: npm run start -- --host=0.0.0.0
+    command: npm run start -- --host=0.0.0.0 --poll=2000
     stdin_open: true
     tty: true
 

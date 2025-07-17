@@ -1,0 +1,145 @@
+.tarefas-container {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.tarefas-lista {
+  margin-top: 20px;
+}
+
+.tarefas-loading {
+  color: #888;
+  text-align: center;
+  padding: 20px;
+  font-style: italic;
+}
+
+.tarefas-vazio {
+  color: #666;
+  text-align: center;
+  padding: 20px;
+  font-style: italic;
+}
+
+.input-add-container {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 16px;
+  align-items: stretch;
+  background: #f8f9fa;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+}
+
+.input-add-container app-input {
+  flex: 1;
+  min-width: 0;
+}
+
+.input-add-container app-button {
+  flex-shrink: 0;
+  min-width: 100px;
+  max-width: 150px;
+}
+
+/* Lista de tarefas */
+.tarefas-lista ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.tarefas-lista li {
+  margin-bottom: 16px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  padding: 16px 14px;
+  display: flex;
+  align-items: center;
+  transition: box-shadow 0.2s;
+}
+
+.tarefas-lista li:hover {
+  box-shadow: 0 4px 16px rgba(0,123,255,0.10);
+}
+
+/* Responsividade para tablets */
+@media (max-width: 768px) {
+  .tarefas-container {
+    padding: 16px;
+  }
+  
+  .input-add-container {
+    padding: 12px;
+    gap: 10px;
+  }
+  
+  .input-add-container app-button {
+    min-width: 80px;
+    max-width: 120px;
+  }
+}
+
+/* Responsividade para celulares */
+@media (max-width: 480px) {
+  .tarefas-container {
+    padding: 12px;
+  }
+  
+  .tarefas-container h1 {
+    font-size: 1.5rem;
+    margin-bottom: 16px;
+  }
+  
+  .tarefas-lista h2 {
+    font-size: 1.2rem;
+  }
+  
+  .input-add-container {
+    flex-direction: column;
+    gap: 12px;
+    padding: 16px;
+  }
+  
+  .input-add-container app-input,
+  .input-add-container app-button {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+  .tarefas-lista li {
+    padding: 12px 8px;
+    font-size: 0.98rem;
+  }
+}
+
+/* Responsividade para telas muito pequenas */
+@media (max-width: 320px) {
+  .tarefas-container {
+    padding: 8px;
+  }
+  
+  .tarefas-container h1 {
+    font-size: 1.3rem;
+  }
+  
+  .input-add-container {
+    padding: 12px;
+    gap: 8px;
+  }
+  
+  .tarefas-loading,
+  .tarefas-vazio {
+    padding: 16px;
+    font-size: 0.9rem;
+  }
+  .tarefas-lista li {
+    padding: 8px 4px;
+    font-size: 0.95rem;
+  }
+}

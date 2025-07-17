@@ -1,0 +1,15 @@
+<button
+  [type]="type"
+  [disabled]="disabled"
+  [ngStyle]="{
+    'background-color': color,
+    color: textColor,
+    border: 'none',
+    cursor: disabled ? 'not-allowed' : 'pointer',
+    'margin-left': marginLeft
+  }"
+  (click)="onClick.emit($event)"
+>
+  <ng-content></ng-content>
+  {{ label }}
+</button> 

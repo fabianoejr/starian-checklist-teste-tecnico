@@ -21,6 +21,11 @@ class CorsMiddleware
         $authToken = env('CORS_AUTH_TOKEN');
         $requestToken = $request->header('Authorization');
 
+        // Remove o prefixo 'Bearer ' se existir
+        if (strpos($requestToken, 'Bearer ') === 0) {
+            $requestToken = substr($requestToken, 7);
+        }
+
         if (!$authToken || $requestToken !== $authToken) {
             return response('Não autorizado', 403);
         }

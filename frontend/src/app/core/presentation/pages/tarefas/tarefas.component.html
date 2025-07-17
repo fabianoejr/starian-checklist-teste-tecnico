@@ -1,0 +1,32 @@
+<section class="tarefas-container">
+  <h1>{{ title }}</h1>
+  <div class="input-add-container">
+    <app-input
+      [placeholder]="'Adicionar nova tarefa'"
+      [value]="newTodo.title || ''"
+      (valueChange)="newTodo.title = $event"
+      [disabled]="loading"
+    ></app-input>
+    <app-button
+      [label]="'Adicionar'"
+      [disabled]="loading || !newTodo.title?.trim()"
+      (click)="addTodo()"
+    ></app-button>
+  </div>
+  <section class="tarefas-lista">
+    <h2>Tarefas</h2>
+    <div *ngIf="loading" class="tarefas-loading">Carregando...</div>
+    <div *ngIf="!loading && todos.length === 0" class="tarefas-vazio">
+      Nenhuma tarefa encontrada..
+    </div>
+    <ul>
+      <li *ngFor="let todo of todos">
+        <app-tarefa-item
+          [tarefa]="todo"
+          [loading]="loading"
+          (remover)="removeTodo(todo.id)">
+        </app-tarefa-item>
+      </li>
+    </ul>
+  </section>
+</section>

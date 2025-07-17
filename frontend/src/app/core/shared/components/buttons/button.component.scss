@@ -1,0 +1,173 @@
+/* Estilos base para o botão customizado */
+button {
+    border: none;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.5;
+    text-align: center;
+    text-decoration: none;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    outline: none;
+    position: relative;
+    
+    /* Padding padrão - será sobrescrito pelo ngStyle se necessário */
+    padding: 12px 20px;
+    min-height: 44px;
+    min-width: 100px;
+    
+    /* Estados de foco para acessibilidade */
+    &:focus-visible {
+      outline: 2px solid #007bff;
+      outline-offset: 2px;
+    }
+  }
+  
+  /* Estados de hover e interação */
+  button:not(:disabled) {
+    cursor: pointer;
+    
+    &:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      filter: brightness(1.05);
+    }
+    
+    &:active {
+      transform: translateY(0);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+  }
+  
+  /* Estado disabled */
+  button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed !important;
+    transform: none !important;
+    box-shadow: none !important;
+    filter: none !important;
+  }
+  
+  /* Responsividade para tablets */
+  @media (max-width: 768px) {
+    button {
+      font-size: 0.95rem;
+      padding: 10px 16px;
+      min-height: 42px;
+      min-width: 80px;
+    }
+  }
+  
+  /* Responsividade para celulares */
+  @media (max-width: 480px) {
+    button {
+      font-size: 1rem;
+      padding: 14px 20px;
+      min-height: 48px;
+      min-width: 0;
+      width: 100%;
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+  }
+  
+  /* Responsividade para telas muito pequenas */
+  @media (max-width: 320px) {
+    button {
+      font-size: 0.9rem;
+      padding: 12px 16px;
+      min-height: 44px;
+    }
+  }
+  
+  /* Variantes de tamanho (classes utilitárias opcionais) */
+  button.btn-small {
+    padding: 6px 12px;
+    font-size: 0.875rem;
+    min-height: 36px;
+    min-width: 80px;
+  }
+  
+  button.btn-large {
+    padding: 16px 24px;
+    font-size: 1.125rem;
+    min-height: 52px;
+    min-width: 120px;
+  }
+  
+  /* Variante de botão em linha (sem width 100% no mobile) */
+  button.btn-inline {
+    @media (max-width: 480px) {
+      width: auto;
+      min-width: 100px;
+    }
+  }
+  
+  /* Variante de botão circular/ícone */
+  button.btn-icon {
+    padding: 8px;
+    min-width: 40px;
+    min-height: 40px;
+    border-radius: 50%;
+    
+    @media (max-width: 480px) {
+      width: auto;
+      min-width: 44px;
+      min-height: 44px;
+    }
+  }
+  
+  /* Estilos para loading state */
+  button.btn-loading {
+    pointer-events: none;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 16px;
+      height: 16px;
+      margin: -8px 0 0 -8px;
+      border: 2px solid transparent;
+      border-top-color: currentColor;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  /* Ajustes para o container pai */
+  .input-add-container button {
+    flex-shrink: 0;
+    margin-left: 0; /* Remove margin padrão */
+  }
+  
+  /* Responsividade específica para o container de input */
+  @media (max-width: 480px) {
+    .input-add-container {
+      flex-direction: column;
+      gap: 12px;
+    }
+    
+    .input-add-container button {
+      width: 100%;
+      min-width: 0;
+      max-width: 100%;
+    }
+  }
+  
+  @media (max-width: 320px) {
+    .input-add-container button {
+      font-size: 0.9rem;
+      padding: 12px 16px;
+    }
+  }
